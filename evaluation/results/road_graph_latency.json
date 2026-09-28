@@ -1,0 +1,157 @@
+{
+  "benchmark": "road_graph_dijkstra_latency_v1",
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.7"
+  },
+  "measured_at_utc": "2026-09-28T12:38:48.057645+00:00",
+  "results": [
+    {
+      "baseline_route_edges": 8,
+      "block_update_latency": {
+        "max_ns": 12542,
+        "mean_ns": 4076.63,
+        "median_ns": 3875.0,
+        "min_ns": 3791,
+        "p95_ns": 4541
+      },
+      "destination": "n_004_004",
+      "directed_edges": 80,
+      "grid_side": 5,
+      "nodes": 25,
+      "origin": "n_000_000",
+      "replanned_route_edges": 8,
+      "replanning_latency": {
+        "max_ns": 136834,
+        "mean_ns": 85922.81,
+        "median_ns": 83395.5,
+        "min_ns": 81750,
+        "p95_ns": 95291
+      },
+      "route_latency": {
+        "max_ns": 115167,
+        "mean_ns": 85668.29,
+        "median_ns": 83937.5,
+        "min_ns": 82458,
+        "p95_ns": 96084
+      }
+    },
+    {
+      "baseline_route_edges": 18,
+      "block_update_latency": {
+        "max_ns": 22334,
+        "mean_ns": 4555.39,
+        "median_ns": 4083.0,
+        "min_ns": 3917,
+        "p95_ns": 6625
+      },
+      "destination": "n_009_009",
+      "directed_edges": 360,
+      "grid_side": 10,
+      "nodes": 100,
+      "origin": "n_000_000",
+      "replanned_route_edges": 18,
+      "replanning_latency": {
+        "max_ns": 499625,
+        "mean_ns": 393189.5,
+        "median_ns": 386104.0,
+        "min_ns": 379625,
+        "p95_ns": 417291
+      },
+      "route_latency": {
+        "max_ns": 479542,
+        "mean_ns": 391950.82,
+        "median_ns": 386146.0,
+        "min_ns": 379708,
+        "p95_ns": 419500
+      }
+    },
+    {
+      "baseline_route_edges": 38,
+      "block_update_latency": {
+        "max_ns": 13459,
+        "mean_ns": 5634.59,
+        "median_ns": 4667.0,
+        "min_ns": 4125,
+        "p95_ns": 10458
+      },
+      "destination": "n_019_019",
+      "directed_edges": 1520,
+      "grid_side": 20,
+      "nodes": 400,
+      "origin": "n_000_000",
+      "replanned_route_edges": 38,
+      "replanning_latency": {
+        "max_ns": 2003583,
+        "mean_ns": 1790855.8,
+        "median_ns": 1771500.0,
+        "min_ns": 1717084,
+        "p95_ns": 1916167
+      },
+      "route_latency": {
+        "max_ns": 2074083,
+        "mean_ns": 1795957.03,
+        "median_ns": 1772396.0,
+        "min_ns": 1717916,
+        "p95_ns": 1912417
+      }
+    },
+    {
+      "baseline_route_edges": 58,
+      "block_update_latency": {
+        "max_ns": 36000,
+        "mean_ns": 8784.58,
+        "median_ns": 6896.0,
+        "min_ns": 4708,
+        "p95_ns": 16125
+      },
+      "destination": "n_029_029",
+      "directed_edges": 3480,
+      "grid_side": 30,
+      "nodes": 900,
+      "origin": "n_000_000",
+      "replanned_route_edges": 58,
+      "replanning_latency": {
+        "max_ns": 8856000,
+        "mean_ns": 4508737.46,
+        "median_ns": 4385145.5,
+        "min_ns": 4203958,
+        "p95_ns": 4913709
+      },
+      "route_latency": {
+        "max_ns": 9929209,
+        "mean_ns": 4574752.46,
+        "median_ns": 4397479.0,
+        "min_ns": 4216167,
+        "p95_ns": 4973792
+      }
+    }
+  ],
+  "workload": {
+    "algorithm": "Dijkstra",
+    "block_timer": "block_road only",
+    "degraded_time_multiplier": 1.5,
+    "directed": true,
+    "edge_status": "OPEN",
+    "excluded_from_timers": [
+      "graph construction",
+      "warmups",
+      "restore of blocked edge after each trial"
+    ],
+    "grid_sides": [
+      5,
+      10,
+      20,
+      30
+    ],
+    "measurement_unit": "nanoseconds",
+    "repeats": 100,
+    "replan_timer": "recompute_route only, after blocking one baseline route edge",
+    "risk_penalty_seconds_per_unit": 20.0,
+    "route_timer": "shortest_safe_route only",
+    "seed": 412073,
+    "warmups": 10
+  }
+}

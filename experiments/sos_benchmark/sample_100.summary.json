@@ -1,0 +1,2056 @@
+{
+  "audit_note": "Human review values are copied from record metadata; this script only performs schema validation and distribution counting.",
+  "overall": {
+    "axes": {
+      "count_mode": {
+        "conflicting": {
+          "count": 5,
+          "percentage": 5.0,
+          "target_percentage": 5
+        },
+        "exact": {
+          "count": 55,
+          "percentage": 55.0,
+          "target_percentage": 55
+        },
+        "omitted": {
+          "count": 15,
+          "percentage": 15.0,
+          "target_percentage": 15
+        },
+        "range": {
+          "count": 10,
+          "percentage": 10.0,
+          "target_percentage": 10
+        },
+        "vague": {
+          "count": 15,
+          "percentage": 15.0,
+          "target_percentage": 15
+        }
+      },
+      "injury_mode": {
+        "conflicting": {
+          "count": 3,
+          "percentage": 3.0,
+          "target_percentage": 3
+        },
+        "hedged": {
+          "count": 10,
+          "percentage": 10.0,
+          "target_percentage": 10
+        },
+        "negative": {
+          "count": 20,
+          "percentage": 20.0,
+          "target_percentage": 20
+        },
+        "omitted": {
+          "count": 37,
+          "percentage": 37.0,
+          "target_percentage": 37
+        },
+        "positive": {
+          "count": 30,
+          "percentage": 30.0,
+          "target_percentage": 30
+        }
+      },
+      "location_mode": {
+        "absent": {
+          "count": 10,
+          "percentage": 10.0,
+          "target_percentage": 10
+        },
+        "competing": {
+          "count": 5,
+          "percentage": 5.0,
+          "target_percentage": 5
+        },
+        "incident_pin": {
+          "count": 40,
+          "percentage": 40.0,
+          "target_percentage": 40
+        },
+        "reporter_gps": {
+          "count": 10,
+          "percentage": 10.0,
+          "target_percentage": 10
+        },
+        "text_location": {
+          "count": 35,
+          "percentage": 35.0,
+          "target_percentage": 35
+        }
+      },
+      "primary_challenge": {
+        "conflicting": {
+          "count": 10,
+          "percentage": 10.0,
+          "target_percentage": 10
+        },
+        "missing": {
+          "count": 15,
+          "percentage": 15.0,
+          "target_percentage": 15
+        },
+        "noisy": {
+          "count": 25,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "ordinary": {
+          "count": 35,
+          "percentage": 35.0,
+          "target_percentage": 35
+        },
+        "vague": {
+          "count": 15,
+          "percentage": 15.0,
+          "target_percentage": 15
+        }
+      },
+      "signal_bucket": {
+        "high": {
+          "count": 35,
+          "percentage": 35.0,
+          "target_percentage": 35
+        },
+        "intermediate": {
+          "count": 35,
+          "percentage": 35.0,
+          "target_percentage": 35
+        },
+        "lower": {
+          "count": 30,
+          "percentage": 30.0,
+          "target_percentage": 30
+        }
+      }
+    },
+    "gold_field_states": {
+      "access_observations": {
+        "conflicting": {
+          "count": 1,
+          "percentage": 1.0
+        },
+        "supported": {
+          "count": 8,
+          "percentage": 8.0
+        },
+        "uncertain": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unknown": {
+          "count": 91,
+          "percentage": 91.0
+        }
+      },
+      "fire_signals": {
+        "conflicting": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "supported": {
+          "count": 8,
+          "percentage": 8.0
+        },
+        "uncertain": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unknown": {
+          "count": 92,
+          "percentage": 92.0
+        }
+      },
+      "incident_location": {
+        "conflicting": {
+          "count": 5,
+          "percentage": 5.0
+        },
+        "supported": {
+          "count": 75,
+          "percentage": 75.0
+        },
+        "uncertain": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unknown": {
+          "count": 20,
+          "percentage": 20.0
+        }
+      },
+      "injury_reported": {
+        "conflicting": {
+          "count": 3,
+          "percentage": 3.0
+        },
+        "supported": {
+          "count": 50,
+          "percentage": 50.0
+        },
+        "uncertain": {
+          "count": 10,
+          "percentage": 10.0
+        },
+        "unknown": {
+          "count": 37,
+          "percentage": 37.0
+        }
+      },
+      "people_count": {
+        "conflicting": {
+          "count": 5,
+          "percentage": 5.0
+        },
+        "supported": {
+          "count": 65,
+          "percentage": 65.0
+        },
+        "uncertain": {
+          "count": 15,
+          "percentage": 15.0
+        },
+        "unknown": {
+          "count": 15,
+          "percentage": 15.0
+        }
+      },
+      "requested_assistance": {
+        "conflicting": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "supported": {
+          "count": 41,
+          "percentage": 41.0
+        },
+        "uncertain": {
+          "count": 15,
+          "percentage": 15.0
+        },
+        "unknown": {
+          "count": 44,
+          "percentage": 44.0
+        }
+      },
+      "structure_signals": {
+        "conflicting": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "supported": {
+          "count": 12,
+          "percentage": 12.0
+        },
+        "uncertain": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unknown": {
+          "count": 88,
+          "percentage": 88.0
+        }
+      },
+      "trapped": {
+        "conflicting": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "supported": {
+          "count": 14,
+          "percentage": 14.0
+        },
+        "uncertain": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unknown": {
+          "count": 86,
+          "percentage": 86.0
+        }
+      },
+      "urgent_signs": {
+        "conflicting": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "supported": {
+          "count": 8,
+          "percentage": 8.0
+        },
+        "uncertain": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unknown": {
+          "count": 92,
+          "percentage": 92.0
+        }
+      },
+      "vulnerable_groups": {
+        "conflicting": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "supported": {
+          "count": 32,
+          "percentage": 32.0
+        },
+        "uncertain": {
+          "count": 1,
+          "percentage": 1.0
+        },
+        "unknown": {
+          "count": 67,
+          "percentage": 67.0
+        }
+      },
+      "water_signals": {
+        "conflicting": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "supported": {
+          "count": 55,
+          "percentage": 55.0
+        },
+        "uncertain": {
+          "count": 0,
+          "percentage": 0.0
+        },
+        "unknown": {
+          "count": 45,
+          "percentage": 45.0
+        }
+      }
+    },
+    "metadata": {
+      "human_audit": {
+        "pending": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "human_review": {
+        "pending": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "metadata.generator": {
+        "offline_templates_v1": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "metadata.language": {
+        "vi": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "metadata.master_seed": {
+        "412073": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "metadata.origin": {
+        "synthetic_template_rule": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "metadata.sample": {
+        "true": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "synthetic": {
+        "true": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.generator": {
+        "1.0.0": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.generator_source_sha256": {
+        "a5e2db608ced6f6b37078e34f5b65481052a14d2cf537f82585245ac1540e97f": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.phrase_bank": {
+        "pb-v1": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.phrase_bank_sha256": {
+        "a757a8a8985501ededf752c28d02e87339dfdb013912224b7c1569480456b53f": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.prng": {
+        "python_random_mt19937": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.pydantic_version": {
+        "2.13.5": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.python_version": {
+        "3.13.7": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.rubric": {
+        "1.0": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.rubric_source_sha256": {
+        "ccc8f1d9b93c7119d89450c0bac81d2d273c515999db6d1fa0857a8294f4c86c": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.schema": {
+        "1.0": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      },
+      "versions.schema_source_sha256": {
+        "70727264b563fd4f072b4d4dea2c73b0873c759fb62f049618ba69bf92755d32": {
+          "count": 100,
+          "percentage": 100.0
+        }
+      }
+    },
+    "reported_prevalence": {
+      "fire_signals": {
+        "count": 8,
+        "percentage": 8.0,
+        "target_percentage": 8
+      },
+      "structure_signals": {
+        "count": 12,
+        "percentage": 12.0,
+        "target_percentage": 12
+      },
+      "vulnerable_groups": {
+        "count": 26,
+        "percentage": 26.0,
+        "target_percentage": 25
+      },
+      "water_signals": {
+        "count": 55,
+        "percentage": 55.0,
+        "target_percentage": 55
+      }
+    },
+    "style_flags": {
+      "fragment": {
+        "count": 25,
+        "percentage": 25.0,
+        "target_percentage": 25
+      },
+      "informal": {
+        "count": 44,
+        "percentage": 44.0,
+        "target_percentage": 40
+      },
+      "irrelevant": {
+        "count": 25,
+        "percentage": 25.0,
+        "target_percentage": 25
+      },
+      "typo": {
+        "count": 20,
+        "percentage": 20.0,
+        "target_percentage": 20
+      },
+      "urgency": {
+        "count": 25,
+        "percentage": 25.0,
+        "target_percentage": 25
+      }
+    },
+    "total": 100
+  },
+  "per_split": {
+    "dev": {
+      "axes": {
+        "count_mode": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0,
+            "target_percentage": 5
+          },
+          "exact": {
+            "count": 11,
+            "percentage": 55.0,
+            "target_percentage": 55
+          },
+          "omitted": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          },
+          "range": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "vague": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          }
+        },
+        "injury_mode": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0,
+            "target_percentage": 3
+          },
+          "hedged": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "negative": {
+            "count": 4,
+            "percentage": 20.0,
+            "target_percentage": 20
+          },
+          "omitted": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 37
+          },
+          "positive": {
+            "count": 6,
+            "percentage": 30.0,
+            "target_percentage": 30
+          }
+        },
+        "location_mode": {
+          "absent": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "competing": {
+            "count": 1,
+            "percentage": 5.0,
+            "target_percentage": 5
+          },
+          "incident_pin": {
+            "count": 8,
+            "percentage": 40.0,
+            "target_percentage": 40
+          },
+          "reporter_gps": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "text_location": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          }
+        },
+        "primary_challenge": {
+          "conflicting": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "missing": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          },
+          "noisy": {
+            "count": 5,
+            "percentage": 25.0,
+            "target_percentage": 25
+          },
+          "ordinary": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "vague": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          }
+        },
+        "signal_bucket": {
+          "high": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "intermediate": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "lower": {
+            "count": 6,
+            "percentage": 30.0,
+            "target_percentage": 30
+          }
+        }
+      },
+      "gold_field_states": {
+        "access_observations": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 19,
+            "percentage": 95.0
+          }
+        },
+        "fire_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 2,
+            "percentage": 10.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 18,
+            "percentage": 90.0
+          }
+        },
+        "incident_location": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "supported": {
+            "count": 15,
+            "percentage": 75.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 4,
+            "percentage": 20.0
+          }
+        },
+        "injury_reported": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "supported": {
+            "count": 10,
+            "percentage": 50.0
+          },
+          "uncertain": {
+            "count": 2,
+            "percentage": 10.0
+          },
+          "unknown": {
+            "count": 7,
+            "percentage": 35.0
+          }
+        },
+        "people_count": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "supported": {
+            "count": 13,
+            "percentage": 65.0
+          },
+          "uncertain": {
+            "count": 3,
+            "percentage": 15.0
+          },
+          "unknown": {
+            "count": 3,
+            "percentage": 15.0
+          }
+        },
+        "requested_assistance": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 4,
+            "percentage": 20.0
+          },
+          "uncertain": {
+            "count": 3,
+            "percentage": 15.0
+          },
+          "unknown": {
+            "count": 13,
+            "percentage": 65.0
+          }
+        },
+        "structure_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 2,
+            "percentage": 10.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 18,
+            "percentage": 90.0
+          }
+        },
+        "trapped": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 3,
+            "percentage": 15.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 17,
+            "percentage": 85.0
+          }
+        },
+        "urgent_signs": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 2,
+            "percentage": 10.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 18,
+            "percentage": 90.0
+          }
+        },
+        "vulnerable_groups": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 7,
+            "percentage": 35.0
+          },
+          "uncertain": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "unknown": {
+            "count": 12,
+            "percentage": 60.0
+          }
+        },
+        "water_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 11,
+            "percentage": 55.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 9,
+            "percentage": 45.0
+          }
+        }
+      },
+      "metadata": {
+        "human_audit": {
+          "pending": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "human_review": {
+          "pending": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.generator": {
+          "offline_templates_v1": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.language": {
+          "vi": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.master_seed": {
+          "412073": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.origin": {
+          "synthetic_template_rule": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.sample": {
+          "true": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "synthetic": {
+          "true": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.generator": {
+          "1.0.0": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.generator_source_sha256": {
+          "a5e2db608ced6f6b37078e34f5b65481052a14d2cf537f82585245ac1540e97f": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.phrase_bank": {
+          "pb-v1": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.phrase_bank_sha256": {
+          "a757a8a8985501ededf752c28d02e87339dfdb013912224b7c1569480456b53f": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.prng": {
+          "python_random_mt19937": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.pydantic_version": {
+          "2.13.5": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.python_version": {
+          "3.13.7": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.rubric": {
+          "1.0": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.rubric_source_sha256": {
+          "ccc8f1d9b93c7119d89450c0bac81d2d273c515999db6d1fa0857a8294f4c86c": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.schema": {
+          "1.0": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.schema_source_sha256": {
+          "70727264b563fd4f072b4d4dea2c73b0873c759fb62f049618ba69bf92755d32": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        }
+      },
+      "reported_prevalence": {
+        "fire_signals": {
+          "count": 2,
+          "percentage": 10.0,
+          "target_percentage": 8
+        },
+        "structure_signals": {
+          "count": 2,
+          "percentage": 10.0,
+          "target_percentage": 12
+        },
+        "vulnerable_groups": {
+          "count": 7,
+          "percentage": 35.0,
+          "target_percentage": 25
+        },
+        "water_signals": {
+          "count": 11,
+          "percentage": 55.0,
+          "target_percentage": 55
+        }
+      },
+      "style_flags": {
+        "fragment": {
+          "count": 5,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "informal": {
+          "count": 8,
+          "percentage": 40.0,
+          "target_percentage": 40
+        },
+        "irrelevant": {
+          "count": 5,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "typo": {
+          "count": 4,
+          "percentage": 20.0,
+          "target_percentage": 20
+        },
+        "urgency": {
+          "count": 5,
+          "percentage": 25.0,
+          "target_percentage": 25
+        }
+      },
+      "total": 20
+    },
+    "test": {
+      "axes": {
+        "count_mode": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0,
+            "target_percentage": 5
+          },
+          "exact": {
+            "count": 11,
+            "percentage": 55.0,
+            "target_percentage": 55
+          },
+          "omitted": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          },
+          "range": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "vague": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          }
+        },
+        "injury_mode": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0,
+            "target_percentage": 3
+          },
+          "hedged": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "negative": {
+            "count": 4,
+            "percentage": 20.0,
+            "target_percentage": 20
+          },
+          "omitted": {
+            "count": 8,
+            "percentage": 40.0,
+            "target_percentage": 37
+          },
+          "positive": {
+            "count": 6,
+            "percentage": 30.0,
+            "target_percentage": 30
+          }
+        },
+        "location_mode": {
+          "absent": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "competing": {
+            "count": 1,
+            "percentage": 5.0,
+            "target_percentage": 5
+          },
+          "incident_pin": {
+            "count": 8,
+            "percentage": 40.0,
+            "target_percentage": 40
+          },
+          "reporter_gps": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "text_location": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          }
+        },
+        "primary_challenge": {
+          "conflicting": {
+            "count": 2,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "missing": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          },
+          "noisy": {
+            "count": 5,
+            "percentage": 25.0,
+            "target_percentage": 25
+          },
+          "ordinary": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "vague": {
+            "count": 3,
+            "percentage": 15.0,
+            "target_percentage": 15
+          }
+        },
+        "signal_bucket": {
+          "high": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "intermediate": {
+            "count": 7,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "lower": {
+            "count": 6,
+            "percentage": 30.0,
+            "target_percentage": 30
+          }
+        }
+      },
+      "gold_field_states": {
+        "access_observations": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 2,
+            "percentage": 10.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 18,
+            "percentage": 90.0
+          }
+        },
+        "fire_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 19,
+            "percentage": 95.0
+          }
+        },
+        "incident_location": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "supported": {
+            "count": 15,
+            "percentage": 75.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 4,
+            "percentage": 20.0
+          }
+        },
+        "injury_reported": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 10,
+            "percentage": 50.0
+          },
+          "uncertain": {
+            "count": 2,
+            "percentage": 10.0
+          },
+          "unknown": {
+            "count": 8,
+            "percentage": 40.0
+          }
+        },
+        "people_count": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "supported": {
+            "count": 13,
+            "percentage": 65.0
+          },
+          "uncertain": {
+            "count": 3,
+            "percentage": 15.0
+          },
+          "unknown": {
+            "count": 3,
+            "percentage": 15.0
+          }
+        },
+        "requested_assistance": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 9,
+            "percentage": 45.0
+          },
+          "uncertain": {
+            "count": 3,
+            "percentage": 15.0
+          },
+          "unknown": {
+            "count": 8,
+            "percentage": 40.0
+          }
+        },
+        "structure_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 3,
+            "percentage": 15.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 17,
+            "percentage": 85.0
+          }
+        },
+        "trapped": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 3,
+            "percentage": 15.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 17,
+            "percentage": 85.0
+          }
+        },
+        "urgent_signs": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 1,
+            "percentage": 5.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 19,
+            "percentage": 95.0
+          }
+        },
+        "vulnerable_groups": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 6,
+            "percentage": 30.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 14,
+            "percentage": 70.0
+          }
+        },
+        "water_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 11,
+            "percentage": 55.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 9,
+            "percentage": 45.0
+          }
+        }
+      },
+      "metadata": {
+        "human_audit": {
+          "pending": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "human_review": {
+          "pending": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.generator": {
+          "offline_templates_v1": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.language": {
+          "vi": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.master_seed": {
+          "412073": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.origin": {
+          "synthetic_template_rule": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "metadata.sample": {
+          "true": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "synthetic": {
+          "true": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.generator": {
+          "1.0.0": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.generator_source_sha256": {
+          "a5e2db608ced6f6b37078e34f5b65481052a14d2cf537f82585245ac1540e97f": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.phrase_bank": {
+          "pb-v1": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.phrase_bank_sha256": {
+          "a757a8a8985501ededf752c28d02e87339dfdb013912224b7c1569480456b53f": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.prng": {
+          "python_random_mt19937": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.pydantic_version": {
+          "2.13.5": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.python_version": {
+          "3.13.7": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.rubric": {
+          "1.0": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.rubric_source_sha256": {
+          "ccc8f1d9b93c7119d89450c0bac81d2d273c515999db6d1fa0857a8294f4c86c": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.schema": {
+          "1.0": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        },
+        "versions.schema_source_sha256": {
+          "70727264b563fd4f072b4d4dea2c73b0873c759fb62f049618ba69bf92755d32": {
+            "count": 20,
+            "percentage": 100.0
+          }
+        }
+      },
+      "reported_prevalence": {
+        "fire_signals": {
+          "count": 1,
+          "percentage": 5.0,
+          "target_percentage": 8
+        },
+        "structure_signals": {
+          "count": 3,
+          "percentage": 15.0,
+          "target_percentage": 12
+        },
+        "vulnerable_groups": {
+          "count": 5,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "water_signals": {
+          "count": 11,
+          "percentage": 55.0,
+          "target_percentage": 55
+        }
+      },
+      "style_flags": {
+        "fragment": {
+          "count": 5,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "informal": {
+          "count": 8,
+          "percentage": 40.0,
+          "target_percentage": 40
+        },
+        "irrelevant": {
+          "count": 5,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "typo": {
+          "count": 4,
+          "percentage": 20.0,
+          "target_percentage": 20
+        },
+        "urgency": {
+          "count": 5,
+          "percentage": 25.0,
+          "target_percentage": 25
+        }
+      },
+      "total": 20
+    },
+    "train": {
+      "axes": {
+        "count_mode": {
+          "conflicting": {
+            "count": 3,
+            "percentage": 5.0,
+            "target_percentage": 5
+          },
+          "exact": {
+            "count": 33,
+            "percentage": 55.0,
+            "target_percentage": 55
+          },
+          "omitted": {
+            "count": 9,
+            "percentage": 15.0,
+            "target_percentage": 15
+          },
+          "range": {
+            "count": 6,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "vague": {
+            "count": 9,
+            "percentage": 15.0,
+            "target_percentage": 15
+          }
+        },
+        "injury_mode": {
+          "conflicting": {
+            "count": 2,
+            "percentage": 3.33,
+            "target_percentage": 3
+          },
+          "hedged": {
+            "count": 6,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "negative": {
+            "count": 12,
+            "percentage": 20.0,
+            "target_percentage": 20
+          },
+          "omitted": {
+            "count": 22,
+            "percentage": 36.67,
+            "target_percentage": 37
+          },
+          "positive": {
+            "count": 18,
+            "percentage": 30.0,
+            "target_percentage": 30
+          }
+        },
+        "location_mode": {
+          "absent": {
+            "count": 6,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "competing": {
+            "count": 3,
+            "percentage": 5.0,
+            "target_percentage": 5
+          },
+          "incident_pin": {
+            "count": 24,
+            "percentage": 40.0,
+            "target_percentage": 40
+          },
+          "reporter_gps": {
+            "count": 6,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "text_location": {
+            "count": 21,
+            "percentage": 35.0,
+            "target_percentage": 35
+          }
+        },
+        "primary_challenge": {
+          "conflicting": {
+            "count": 6,
+            "percentage": 10.0,
+            "target_percentage": 10
+          },
+          "missing": {
+            "count": 9,
+            "percentage": 15.0,
+            "target_percentage": 15
+          },
+          "noisy": {
+            "count": 15,
+            "percentage": 25.0,
+            "target_percentage": 25
+          },
+          "ordinary": {
+            "count": 21,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "vague": {
+            "count": 9,
+            "percentage": 15.0,
+            "target_percentage": 15
+          }
+        },
+        "signal_bucket": {
+          "high": {
+            "count": 21,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "intermediate": {
+            "count": 21,
+            "percentage": 35.0,
+            "target_percentage": 35
+          },
+          "lower": {
+            "count": 18,
+            "percentage": 30.0,
+            "target_percentage": 30
+          }
+        }
+      },
+      "gold_field_states": {
+        "access_observations": {
+          "conflicting": {
+            "count": 1,
+            "percentage": 1.67
+          },
+          "supported": {
+            "count": 5,
+            "percentage": 8.33
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 54,
+            "percentage": 90.0
+          }
+        },
+        "fire_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 5,
+            "percentage": 8.33
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 55,
+            "percentage": 91.67
+          }
+        },
+        "incident_location": {
+          "conflicting": {
+            "count": 3,
+            "percentage": 5.0
+          },
+          "supported": {
+            "count": 45,
+            "percentage": 75.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 12,
+            "percentage": 20.0
+          }
+        },
+        "injury_reported": {
+          "conflicting": {
+            "count": 2,
+            "percentage": 3.33
+          },
+          "supported": {
+            "count": 30,
+            "percentage": 50.0
+          },
+          "uncertain": {
+            "count": 6,
+            "percentage": 10.0
+          },
+          "unknown": {
+            "count": 22,
+            "percentage": 36.67
+          }
+        },
+        "people_count": {
+          "conflicting": {
+            "count": 3,
+            "percentage": 5.0
+          },
+          "supported": {
+            "count": 39,
+            "percentage": 65.0
+          },
+          "uncertain": {
+            "count": 9,
+            "percentage": 15.0
+          },
+          "unknown": {
+            "count": 9,
+            "percentage": 15.0
+          }
+        },
+        "requested_assistance": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 28,
+            "percentage": 46.67
+          },
+          "uncertain": {
+            "count": 9,
+            "percentage": 15.0
+          },
+          "unknown": {
+            "count": 23,
+            "percentage": 38.33
+          }
+        },
+        "structure_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 7,
+            "percentage": 11.67
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 53,
+            "percentage": 88.33
+          }
+        },
+        "trapped": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 8,
+            "percentage": 13.33
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 52,
+            "percentage": 86.67
+          }
+        },
+        "urgent_signs": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 5,
+            "percentage": 8.33
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 55,
+            "percentage": 91.67
+          }
+        },
+        "vulnerable_groups": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 19,
+            "percentage": 31.67
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 41,
+            "percentage": 68.33
+          }
+        },
+        "water_signals": {
+          "conflicting": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "supported": {
+            "count": 33,
+            "percentage": 55.0
+          },
+          "uncertain": {
+            "count": 0,
+            "percentage": 0.0
+          },
+          "unknown": {
+            "count": 27,
+            "percentage": 45.0
+          }
+        }
+      },
+      "metadata": {
+        "human_audit": {
+          "pending": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "human_review": {
+          "pending": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "metadata.generator": {
+          "offline_templates_v1": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "metadata.language": {
+          "vi": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "metadata.master_seed": {
+          "412073": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "metadata.origin": {
+          "synthetic_template_rule": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "metadata.sample": {
+          "true": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "synthetic": {
+          "true": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.generator": {
+          "1.0.0": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.generator_source_sha256": {
+          "a5e2db608ced6f6b37078e34f5b65481052a14d2cf537f82585245ac1540e97f": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.phrase_bank": {
+          "pb-v1": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.phrase_bank_sha256": {
+          "a757a8a8985501ededf752c28d02e87339dfdb013912224b7c1569480456b53f": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.prng": {
+          "python_random_mt19937": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.pydantic_version": {
+          "2.13.5": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.python_version": {
+          "3.13.7": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.rubric": {
+          "1.0": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.rubric_source_sha256": {
+          "ccc8f1d9b93c7119d89450c0bac81d2d273c515999db6d1fa0857a8294f4c86c": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.schema": {
+          "1.0": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        },
+        "versions.schema_source_sha256": {
+          "70727264b563fd4f072b4d4dea2c73b0873c759fb62f049618ba69bf92755d32": {
+            "count": 60,
+            "percentage": 100.0
+          }
+        }
+      },
+      "reported_prevalence": {
+        "fire_signals": {
+          "count": 5,
+          "percentage": 8.33,
+          "target_percentage": 8
+        },
+        "structure_signals": {
+          "count": 7,
+          "percentage": 11.67,
+          "target_percentage": 12
+        },
+        "vulnerable_groups": {
+          "count": 14,
+          "percentage": 23.33,
+          "target_percentage": 25
+        },
+        "water_signals": {
+          "count": 33,
+          "percentage": 55.0,
+          "target_percentage": 55
+        }
+      },
+      "style_flags": {
+        "fragment": {
+          "count": 15,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "informal": {
+          "count": 28,
+          "percentage": 46.67,
+          "target_percentage": 40
+        },
+        "irrelevant": {
+          "count": 15,
+          "percentage": 25.0,
+          "target_percentage": 25
+        },
+        "typo": {
+          "count": 12,
+          "percentage": 20.0,
+          "target_percentage": 20
+        },
+        "urgency": {
+          "count": 15,
+          "percentage": 25.0,
+          "target_percentage": 25
+        }
+      },
+      "total": 60
+    }
+  },
+  "split_distribution": {
+    "dev": {
+      "count": 20,
+      "percentage": 20.0,
+      "target_percentage": 20
+    },
+    "test": {
+      "count": 20,
+      "percentage": 20.0,
+      "target_percentage": 20
+    },
+    "train": {
+      "count": 60,
+      "percentage": 60.0,
+      "target_percentage": 60
+    }
+  },
+  "target_percentages": {
+    "count_mode": {
+      "conflicting": 5,
+      "exact": 55,
+      "omitted": 15,
+      "range": 10,
+      "vague": 15
+    },
+    "injury_mode": {
+      "conflicting": 3,
+      "hedged": 10,
+      "negative": 20,
+      "omitted": 37,
+      "positive": 30
+    },
+    "location_mode": {
+      "absent": 10,
+      "competing": 5,
+      "incident_pin": 40,
+      "reporter_gps": 10,
+      "text_location": 35
+    },
+    "primary_challenge": {
+      "conflicting": 10,
+      "missing": 15,
+      "noisy": 25,
+      "ordinary": 35,
+      "vague": 15
+    },
+    "reported_prevalence": {
+      "fire_signals": 8,
+      "structure_signals": 12,
+      "vulnerable_groups": 25,
+      "water_signals": 55
+    },
+    "signal_bucket": {
+      "high": 35,
+      "intermediate": 35,
+      "lower": 30
+    },
+    "split": {
+      "dev": 20,
+      "test": 20,
+      "train": 60
+    },
+    "style_flags": {
+      "fragment": 25,
+      "informal": 40,
+      "irrelevant": 25,
+      "typo": 20,
+      "urgency": 25
+    }
+  },
+  "total": 100
+}

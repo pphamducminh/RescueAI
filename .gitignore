@@ -3,9 +3,11 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.egg-info/
 
 # Virtual environment
 .venv/
+.venv-1/
 venv/
 env/
 
@@ -32,6 +34,8 @@ logs/
 
 # Testing
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .coverage
 htmlcov/
 
