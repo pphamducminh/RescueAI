@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c2532" />
+    <title>RescueAI | Dispatcher demo</title>
+    <link rel="stylesheet" href="/demo/static/app.css" />
+    <script type="module" src="/demo/static/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">+</div>
+          <div>
+            <p class="eyebrow">Dispatch decision support</p>
+            <h1>RescueAI <span>demo</span></h1>
+          </div>
+        </div>
+        <div class="header-actions">
+          <label class="operator-field" for="operator-id">Dispatcher ID <input id="operator-id" type="text" maxlength="80" autocomplete="off" placeholder="Enter your ID" /></label>
+          <span id="connection" class="connection" role="status">Connecting…</span>
+          <button id="reset" class="button button-quiet" type="button">Reset demo</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="shell">
+      <div class="notice">
+        <strong>Synthetic demonstration.</strong> Rule-based SOS suggestions and a
+        synthetic road graph. A human dispatcher reviews reports and approves a
+        current dispatch proposal before it is treated as approved.
+      </div>
+
+      <div id="feedback" class="feedback" role="alert" hidden></div>
+
+      <section class="intro" aria-labelledby="intro-title">
+        <div>
+          <p class="eyebrow">Live scenario</p>
+          <h2 id="intro-title">From SOS to a reviewed rescue route</h2>
+          <p>Submit a report, check the suggested facts, review the dispatch inputs, and test a road closure.</p>
+        </div>
+        <div id="revision" class="revision">Graph revision —</div>
+      </section>
+
+      <div class="workspace">
+        <div class="left-column">
+          <section class="card" aria-labelledby="sos-title">
+            <div class="section-heading">
+              <div><p class="eyebrow">Step 01</p><h2 id="sos-title">Submit an SOS</h2></div>
+            </div>
+            <form id="sos-form" class="stack">
+              <label for="sos-text">Report text</label>
+              <textarea id="sos-text" name="text" rows="4" minlength="1" maxlength="2000" required placeholder="Example: Two people trapped near North Bridge. Water is rising and one person is injured."></textarea>
+              <label for="suggested-node">Suggested incident node</label>
+              <select id="suggested-node" name="suggested_node_id" required></select>
+              <p class="field-hint">This is a starting suggestion. The dispatcher reviews the incident node below.</p>
+              <button class="button button-primary" type="submit">Submit SOS report</button>
+            </form>
+          </section>
+
+          <section class="card" aria-labelledby="reports-title">
+            <div class="section-heading">
+              <div><p class="eyebrow">Step 02</p><h2 id="reports-title">Review reports</h2></div>
+              <span id="report-count" class="count-badge">0</span>
+            </div>
+            <p class="section-description">Suggestions keep unknown and conflicting facts visible. Review the incident node and set a dispatch weight before assignment.</p>
+            <div id="reports" class="report-list" aria-live="polite"></div>
+          </section>
+        </div>
+
+        <div class="right-column">
+          <section class="card map-card" aria-labelledby="map-title">
+            <div class="section-heading">
+              <div><p class="eyebrow">Step 03</p><h2 id="map-title">Road network and routes</h2></div>
+              <span id="map-revision" class="small-revision">Revision —</span>
+            </div>
+            <div class="map-legend" aria-label="Map legend">
+              <span><i class="legend-line open"></i> Open</span>
+              <span><i class="legend-line degraded"></i> Degraded</span>
+              <span><i class="legend-line blocked"></i> Blocked</span>
+              <span><i class="legend-line route"></i> Proposed route</span>
+            </div>
+            <div id="map" class="map-wrap" aria-label="Synthetic road graph diagram"></div>
+            <p class="field-hint">Diagram coordinates are synthetic. Lines show directed road links; a colored overlay shows proposed routes.</p>
+          </section>
+
+          <section class="card" aria-labelledby="proposal-title">
+            <div class="section-heading">
+              <div><p class="eyebrow">Step 04</p><h2 id="proposal-title">Dispatch proposal</h2></div>
+              <span id="proposal-status" class="status-pill">Awaiting reports</span>
+            </div>
+            <div id="proposal" class="proposal-content"></div>
+          </section>
+
+          <section class="card" aria-labelledby="roads-title">
+            <div class="section-heading">
+              <div><p class="eyebrow">Step 05</p><h2 id="roads-title">Road updates</h2></div>
+            </div>
+            <p class="section-description">Closing a road triggers a fresh route and dispatch proposal against the new graph revision.</p>
+            <div id="roads" class="road-list"></div>
+          </section>
+
+          <section class="card" aria-labelledby="teams-title">
+            <div class="section-heading">
+              <div><p class="eyebrow">Resources</p><h2 id="teams-title">Rescue teams</h2></div>
+            </div>
+            <div id="teams" class="team-list"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
