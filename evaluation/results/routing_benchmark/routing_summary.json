@@ -1,0 +1,192 @@
+{
+  "benchmark": "road_graph_dijkstra_raw_trials_v1",
+  "configuration": {
+    "algorithm": "Dijkstra",
+    "directed": true,
+    "edge_status_before_each_trial": "OPEN",
+    "excluded_from_timers": [
+      "grid construction",
+      "warmups",
+      "blocked-road selection and validation",
+      "restoration after each trial",
+      "CSV and JSON serialization"
+    ],
+    "graph_seed_rule": "seed + grid_side",
+    "grid_sides": [
+      5,
+      10,
+      20,
+      30
+    ],
+    "measurement_unit": "nanoseconds",
+    "repeats_per_side": 30,
+    "routing_cost": {
+      "degraded_time_multiplier": 1.5,
+      "risk_penalty_seconds_per_unit": 20.0
+    },
+    "seed": 412073,
+    "summary_statistics": "descriptive per side; p95 uses the nearest-rank method",
+    "timer_scope": {
+      "block": "block_road only",
+      "replan": "recompute_route only after a baseline road is blocked",
+      "route": "shortest_safe_route only"
+    },
+    "timing_reproducibility": "workload repeats for a seed; wall time varies by machine/load",
+    "warmups_per_side": 3
+  },
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.7"
+  },
+  "measured_at_utc": "2026-09-29T02:46:03.781229+00:00",
+  "raw_results": {
+    "columns": [
+      "grid_side",
+      "seed",
+      "trial_index",
+      "nodes",
+      "directed_edges",
+      "origin_node_id",
+      "destination_node_id",
+      "blocked_edge_id",
+      "baseline_edge_ids",
+      "replanned_edge_ids",
+      "baseline_graph_revision",
+      "blocked_graph_revision",
+      "baseline_travel_time_seconds",
+      "replanned_travel_time_seconds",
+      "baseline_effective_cost_seconds",
+      "replanned_effective_cost_seconds",
+      "route_runtime_ns",
+      "block_runtime_ns",
+      "replan_runtime_ns"
+    ],
+    "csv_path": "evaluation/results/routing_benchmark/routing_trials.csv",
+    "row_count": 120
+  },
+  "results": [
+    {
+      "block_runtime_ns": {
+        "count": 30,
+        "max_ns": 5250,
+        "mean_ns": 4119.5,
+        "median_ns": 4083.5,
+        "min_ns": 3834,
+        "p95_ns": 4333
+      },
+      "directed_edges": 80,
+      "grid_side": 5,
+      "nodes": 25,
+      "replan_runtime_ns": {
+        "count": 30,
+        "max_ns": 99042,
+        "mean_ns": 87291.63333333333,
+        "median_ns": 86875.0,
+        "min_ns": 82791,
+        "p95_ns": 97209
+      },
+      "route_runtime_ns": {
+        "count": 30,
+        "max_ns": 89833,
+        "mean_ns": 86816.56666666667,
+        "median_ns": 86125.0,
+        "min_ns": 83875,
+        "p95_ns": 89833
+      },
+      "trial_count": 30
+    },
+    {
+      "block_runtime_ns": {
+        "count": 30,
+        "max_ns": 13666,
+        "mean_ns": 4904.066666666667,
+        "median_ns": 4291.0,
+        "min_ns": 3917,
+        "p95_ns": 8042
+      },
+      "directed_edges": 360,
+      "grid_side": 10,
+      "nodes": 100,
+      "replan_runtime_ns": {
+        "count": 30,
+        "max_ns": 504916,
+        "mean_ns": 410302.73333333334,
+        "median_ns": 405750.0,
+        "min_ns": 379875,
+        "p95_ns": 476542
+      },
+      "route_runtime_ns": {
+        "count": 30,
+        "max_ns": 475292,
+        "mean_ns": 404970.73333333334,
+        "median_ns": 401145.5,
+        "min_ns": 381459,
+        "p95_ns": 461208
+      },
+      "trial_count": 30
+    },
+    {
+      "block_runtime_ns": {
+        "count": 30,
+        "max_ns": 14209,
+        "mean_ns": 6056.966666666666,
+        "median_ns": 5333.5,
+        "min_ns": 4333,
+        "p95_ns": 13375
+      },
+      "directed_edges": 1520,
+      "grid_side": 20,
+      "nodes": 400,
+      "replan_runtime_ns": {
+        "count": 30,
+        "max_ns": 1902459,
+        "mean_ns": 1796816.5666666667,
+        "median_ns": 1783812.5,
+        "min_ns": 1741208,
+        "p95_ns": 1893333
+      },
+      "route_runtime_ns": {
+        "count": 30,
+        "max_ns": 2006667,
+        "mean_ns": 1799551.4,
+        "median_ns": 1792041.5,
+        "min_ns": 1717833,
+        "p95_ns": 1947667
+      },
+      "trial_count": 30
+    },
+    {
+      "block_runtime_ns": {
+        "count": 30,
+        "max_ns": 25250,
+        "mean_ns": 9979.3,
+        "median_ns": 7625.5,
+        "min_ns": 5542,
+        "p95_ns": 19667
+      },
+      "directed_edges": 3480,
+      "grid_side": 30,
+      "nodes": 900,
+      "replan_runtime_ns": {
+        "count": 30,
+        "max_ns": 6439375,
+        "mean_ns": 4603202.833333333,
+        "median_ns": 4476813.0,
+        "min_ns": 4255625,
+        "p95_ns": 5101250
+      },
+      "route_runtime_ns": {
+        "count": 30,
+        "max_ns": 8496000,
+        "mean_ns": 4718904.066666666,
+        "median_ns": 4478875.0,
+        "min_ns": 4266625,
+        "p95_ns": 6087500
+      },
+      "trial_count": 30
+    }
+  ],
+  "synthetic": true
+}

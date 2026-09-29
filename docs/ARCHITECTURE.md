@@ -1,10 +1,10 @@
 # RescueAI architecture
 
-This document describes the repository boundaries established for [MVP Architecture v1](MVP%20Architecture%20v1.md). The current code is an MVP scaffold with an offline synthetic SOS benchmark, a dynamic road graph, and standalone one-wave dispatch strategies. The architecture document describes the intended MVP; a described workflow is not evidence that it has been implemented.
+This document describes the repository boundaries established for [MVP Architecture v1](MVP%20Architecture%20v1.md). The current code includes an offline synthetic SOS benchmark, a dynamic road graph, standalone one-wave dispatch strategies, and a local synthetic competition demo. The architecture document also describes a broader intended MVP; that intended workflow is not evidence of an operational implementation.
 
 ## Purpose and status
 
-RescueAI will propose rescue team assignments and routes from SOS reports, team state, and a changing road graph. Every operational recommendation requires a human dispatcher to approve or reject it. The only live API behavior is `GET /health`. Standalone domain behavior now includes SOS contracts, synthetic benchmark tooling, deterministic road-graph routing, and four dispatch proposal strategies. SOS extraction, reviewed priority calculation, an operational approval workflow, and the end-to-end workflow remain future work.
+RescueAI proposes rescue team assignments and routes from SOS reports, team state, and a changing road graph. The local demo now accepts SOS text, extracts a narrow set of claims with offline rules, suggests provisional attention, requires explicit review of dispatch inputs, computes a one-wave proposal, replans after a road closure, and records dispatcher approval. See [the demo guide](DEMO.md). This is a synthetic, in-memory decision-support demonstration; approvals do not operate teams or contact responders. A reviewed priority policy, LLM extraction, persistent operational approval workflow, and live disaster inputs remain future work.
 
 ```mermaid
 flowchart LR
@@ -18,7 +18,7 @@ flowchart LR
     E --> H
 ```
 
-The arrows show the planned flow. They do not represent a functioning end-to-end pipeline yet.
+The demo implements the flow through a recorded approval using synthetic inputs and a local browser dashboard. The final operational-assignment step remains outside the demo.
 
 ## Package ownership
 
@@ -28,6 +28,7 @@ The arrows show the planned flow. They do not represent a functioning end-to-end
 | `backend/domain/` | Shared Pydantic domain schemas and value contracts, independent of HTTP. |
 | `backend/extraction/` | SOS text extraction interface. Model output, provenance, missing fields, and uncertainty remain explicit. |
 | `backend/priority/` | Explainable *suggested* priority interface. A suggestion is not a verified fact. |
+| `backend/demo/` | In-memory synthetic graph, teams, reviewed SOS inputs, recomputed proposals, and recorded approvals. |
 | `backend/routing/` | Implemented directed, weighted road graph, deterministic Dijkstra routes, road updates, and dispatch contract adapter. |
 | `backend/dispatch/` | Shared routing/eligibility snapshot, interchangeable one-wave policies, exact assignment matching, and proposal contracts. |
 | `backend/simulation/` | Seed helper; planned deterministic playback logic and simulation clock. |
@@ -35,12 +36,12 @@ The arrows show the planned flow. They do not represent a functioning end-to-end
 | `evaluation/` | Offline SOS benchmark and variant triage, measured routing trials, and synthetic one-wave dispatch comparison and ablation. |
 | `experiments/` | The 100-record synthetic SOS development sample; future versioned runs and outputs. |
 | `data/sos_benchmark/natural_variants/` | Task 6 render specs and imported-variant audit and triage files, separate from source code. |
-| `frontend/` | Planned React dashboard; currently documentation only. |
+| `frontend/` | Dependency-free browser dashboard and offline build script for the local demo. |
 | `tests/` | Tests for implemented behavior and contracts. |
 
 Domain logic belongs outside `backend/api/` so simulation and tests can invoke it without HTTP. Dispatch strategies share a `DispatchStrategy.solve(state) -> DispatchPlan` interface so the policy can change without changing a consumer. The older `DispatchPolicy.propose` protocol remains as an unwired adapter contract. Keep simulation inputs, simulation logic, metric calculations, and experimental outputs distinct.
 
-The four [SOS Schema v1](SOS%20Schema%20v1.md) snapshots are defined in `backend/domain/sos.py` and its supporting modules. Text/image source grounding that depends on the original report is checked with `validate_extraction_against_input(extraction, source)` after both snapshots are available. This is validation of records, not an implemented extractor or priority policy.
+The four [SOS Schema v1](SOS%20Schema%20v1.md) snapshots are defined in `backend/domain/sos.py` and its supporting modules. Text/image source grounding that depends on the original report is checked with `validate_extraction_against_input(extraction, source)` after both snapshots are available. The demo's small rule-based extractor creates evidence-backed text claims, and its priority assessor makes provisional suggestions. Neither implements a general extraction model or the full priority policy.
 
 The [Task 5 SOS generator](../evaluation/sos_benchmark/README.md) freezes latent state, planned claims, and gold before rendering text. Its deterministic, synthetic output remains the primary benchmark. The optional [Task 6 variation layer](../evaluation/sos_benchmark/natural_variants/README.md) projects only communication-plan and gold-annotation facts into a render spec. It does not read hidden latent state to form generation instructions or redefine ground truth. A stored render spec holds submitted GPS in `external_context` for local checks; `provider_payload()` omits that context. Imported text is triaged offline, and inclusion in a frozen benchmark requires independent semantic validation and re-anchored evidence.
 
@@ -58,7 +59,7 @@ The implemented one-wave policies are FCFS, nearest feasible team, priority-awar
 
 The [approved assignment formulation](RescueAI%20Assignment%20Model%20v1.md) minimizes `P = sum_i w_i z_i` (weighted pending loss) first, then `Q = sum_(i,j) w_i t_ij x_ij` (weighted travel seconds). With `K = 1 + sum_i w_i T_i^max`, minimizing `C = K P + Q` is equivalent for this integer one-wave problem. Baselines report the same `P`, `Q`, `K`, and `C` without claiming to minimize them. The optimizer uses exact Python-integer Hungarian matching with pending columns; this differs from the document's OR-Tools/checked-64-bit min-cost-flow implementation sketch while implementing the same stated objective. Fixed ID ordering and stable tie scans make output deterministic for identical inputs. Plans contain assignments, routes, predicted response, unserved requests, reasons, and explanations and always await human approval. See the [dispatch guide](../backend/dispatch/README.md).
 
-The earlier [Priority Model v1](RescueAI%20Priority%20Model%20v1.md) suggested lexicographically maximizing a served vector in approved queue order. That policy can select a different assignment from minimizing weighted pending loss. The implementation follows the later, dedicated Assignment Model v1. No adapter currently converts `ValidatedSOS` and a priority assessment into a reviewed dispatch weight or accepted incident node.
+The earlier [Priority Model v1](RescueAI%20Priority%20Model%20v1.md) suggested lexicographically maximizing a served vector in approved queue order. That policy can select a different assignment from minimizing weighted pending loss. The implementation follows the later, dedicated Assignment Model v1. In the demo, a dispatcher explicitly accepts an incident node, required capabilities, and an integer dispatch weight from 1 to 5; the rule-based priority suggestion never becomes an approved weight automatically. This is a narrow review bridge, not a full `ValidatedSOS` priority policy.
 
 ## Configuration and reproducibility
 
@@ -90,7 +91,7 @@ plan.
 
 ## Scope boundary
 
-**MUST HAVE for the completed MVP:** validated SOS intake and extraction, suggested priority, feasible routing under road changes, dispatcher-reviewed proposals, baseline policies, a dashboard, and reproducible evaluation. These are acceptance targets, not claims about the scaffold.
+**MUST HAVE for the completed MVP:** validated SOS intake and extraction, suggested priority, feasible routing under road changes, dispatcher-reviewed proposals, baseline policies, a dashboard, and reproducible evaluation. The local demo demonstrates these steps with rule-based extraction and synthetic state; it does not establish operational readiness or extraction accuracy.
 
 **NICE TO HAVE:** image analysis, OpenStreetMap data and map display, larger optimization methods, and uncertainty analysis.
 

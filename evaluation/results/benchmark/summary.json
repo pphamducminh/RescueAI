@@ -1,0 +1,534 @@
+{
+  "aggregation_unit": "scenario run; request rows are validated but not pooled as replicates",
+  "config": {
+    "horizon_seconds": 7200,
+    "scenarios_per_seed": 100,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "strategies": [
+      "fcfs",
+      "nearest_team",
+      "priority_aware_greedy",
+      "rescueai_optimizer"
+    ],
+    "variants": [
+      "baseline"
+    ]
+  },
+  "failure_count": 0,
+  "failures": [],
+  "groups": [
+    {
+      "metrics": {
+        "coverage_fraction": {
+          "count": 500,
+          "max": 0.75,
+          "mean": 0.5424,
+          "median": 0.6,
+          "min": 0.2,
+          "null_count": 0
+        },
+        "critical_capped_all_request_seconds": {
+          "count": 432,
+          "max": 7200.0,
+          "mean": 3735.196759259259,
+          "median": 3945.5,
+          "min": 117.0,
+          "null_count": 68
+        },
+        "critical_cue_unreached_fraction": {
+          "count": 432,
+          "max": 1.0,
+          "mean": 0.45852623456790126,
+          "median": 0.5,
+          "min": 0.0,
+          "null_count": 68
+        },
+        "evaluation_weighted_capped_all_request_seconds": {
+          "count": 500,
+          "max": 6805.464285714285,
+          "mean": 3766.0495648811516,
+          "median": 3735.48125,
+          "min": 1166.6,
+          "null_count": 0
+        },
+        "evaluation_weighted_mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1696.5,
+          "mean": 812.1083242063492,
+          "median": 811.5625,
+          "min": 200.0,
+          "null_count": 0
+        },
+        "mean_critical_response_seconds_reached": {
+          "count": 322,
+          "max": 1696.5,
+          "mean": 814.0292443064181,
+          "median": 799.75,
+          "min": 117.0,
+          "null_count": 178
+        },
+        "mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1696.5,
+          "mean": 809.5605,
+          "median": 797.6666666666666,
+          "min": 200.0,
+          "null_count": 0
+        },
+        "p90_capped_all_request_seconds": {
+          "count": 500,
+          "max": 7200.0,
+          "mean": 7200.0,
+          "median": 7200.0,
+          "min": 7200.0,
+          "null_count": 0
+        },
+        "plan_assigned_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.184,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "planned_route_distance_meters": {
+          "count": 500,
+          "max": 19816.0,
+          "mean": 7433.44,
+          "median": 7172.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "reached_by_horizon_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.184,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "reached_route_distance_meters": {
+          "count": 500,
+          "max": 19816.0,
+          "mean": 7433.44,
+          "median": 7172.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "request_count": {
+          "count": 500,
+          "max": 5.0,
+          "mean": 4.054,
+          "median": 4.0,
+          "min": 3.0,
+          "null_count": 0
+        },
+        "solve_latency_ns": {
+          "count": 500,
+          "max": 2041334.0,
+          "mean": 34133.83,
+          "median": 27354.5,
+          "min": 20042.0,
+          "null_count": 0
+        }
+      },
+      "scenario_count": 500,
+      "scenario_origin": "seeded_generated",
+      "solver_error_count": 0,
+      "strategy": "fcfs",
+      "successful_run_count": 500,
+      "variant": "baseline"
+    },
+    {
+      "metrics": {
+        "coverage_fraction": {
+          "count": 500,
+          "max": 0.75,
+          "mean": 0.5393,
+          "median": 0.5,
+          "min": 0.2,
+          "null_count": 0
+        },
+        "critical_capped_all_request_seconds": {
+          "count": 432,
+          "max": 7200.0,
+          "mean": 3667.9125192901233,
+          "median": 3852.5,
+          "min": 112.0,
+          "null_count": 68
+        },
+        "critical_cue_unreached_fraction": {
+          "count": 432,
+          "max": 1.0,
+          "mean": 0.45987654320987653,
+          "median": 0.5,
+          "min": 0.0,
+          "null_count": 68
+        },
+        "evaluation_weighted_capped_all_request_seconds": {
+          "count": 500,
+          "max": 6726.071428571428,
+          "mean": 3736.9066194911743,
+          "median": 3740.1078947368424,
+          "min": 1087.4444444444443,
+          "null_count": 0
+        },
+        "evaluation_weighted_mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1284.142857142857,
+          "mean": 636.7014499999999,
+          "median": 624.0416666666667,
+          "min": 143.0,
+          "null_count": 0
+        },
+        "mean_critical_response_seconds_reached": {
+          "count": 326,
+          "max": 1838.0,
+          "mean": 657.855572597137,
+          "median": 641.25,
+          "min": 112.0,
+          "null_count": 174
+        },
+        "mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1246.0,
+          "mean": 636.8086666666667,
+          "median": 638.25,
+          "min": 143.0,
+          "null_count": 0
+        },
+        "p90_capped_all_request_seconds": {
+          "count": 500,
+          "max": 7200.0,
+          "mean": 7200.0,
+          "median": 7200.0,
+          "min": 7200.0,
+          "null_count": 0
+        },
+        "plan_assigned_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.174,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "planned_route_distance_meters": {
+          "count": 500,
+          "max": 13304.0,
+          "mean": 5706.448,
+          "median": 5408.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "reached_by_horizon_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.174,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "reached_route_distance_meters": {
+          "count": 500,
+          "max": 13304.0,
+          "mean": 5706.448,
+          "median": 5408.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "request_count": {
+          "count": 500,
+          "max": 5.0,
+          "mean": 4.054,
+          "median": 4.0,
+          "min": 3.0,
+          "null_count": 0
+        },
+        "solve_latency_ns": {
+          "count": 500,
+          "max": 161750.0,
+          "mean": 24904.096,
+          "median": 23875.0,
+          "min": 16750.0,
+          "null_count": 0
+        }
+      },
+      "scenario_count": 500,
+      "scenario_origin": "seeded_generated",
+      "solver_error_count": 0,
+      "strategy": "nearest_team",
+      "successful_run_count": 500,
+      "variant": "baseline"
+    },
+    {
+      "metrics": {
+        "coverage_fraction": {
+          "count": 500,
+          "max": 0.75,
+          "mean": 0.5428,
+          "median": 0.55,
+          "min": 0.2,
+          "null_count": 0
+        },
+        "critical_capped_all_request_seconds": {
+          "count": 432,
+          "max": 7200.0,
+          "mean": 3711.7105516975307,
+          "median": 3882.625,
+          "min": 117.0,
+          "null_count": 68
+        },
+        "critical_cue_unreached_fraction": {
+          "count": 432,
+          "max": 1.0,
+          "mean": 0.45794753086419754,
+          "median": 0.5,
+          "min": 0.0,
+          "null_count": 68
+        },
+        "evaluation_weighted_capped_all_request_seconds": {
+          "count": 500,
+          "max": 6805.464285714285,
+          "mean": 3729.903514882442,
+          "median": 3766.9017094017095,
+          "min": 1166.6,
+          "null_count": 0
+        },
+        "evaluation_weighted_mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1676.5,
+          "mean": 754.8683200577201,
+          "median": 746.5,
+          "min": 158.0,
+          "null_count": 0
+        },
+        "mean_critical_response_seconds_reached": {
+          "count": 320,
+          "max": 1838.0,
+          "mean": 767.2296875,
+          "median": 756.5,
+          "min": 116.0,
+          "null_count": 180
+        },
+        "mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1676.5,
+          "mean": 753.207,
+          "median": 750.0,
+          "min": 158.0,
+          "null_count": 0
+        },
+        "p90_capped_all_request_seconds": {
+          "count": 500,
+          "max": 7200.0,
+          "mean": 7200.0,
+          "median": 7200.0,
+          "min": 7200.0,
+          "null_count": 0
+        },
+        "plan_assigned_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.186,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "planned_route_distance_meters": {
+          "count": 500,
+          "max": 19552.0,
+          "mean": 7340.976,
+          "median": 7124.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "reached_by_horizon_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.186,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "reached_route_distance_meters": {
+          "count": 500,
+          "max": 19552.0,
+          "mean": 7340.976,
+          "median": 7124.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "request_count": {
+          "count": 500,
+          "max": 5.0,
+          "mean": 4.054,
+          "median": 4.0,
+          "min": 3.0,
+          "null_count": 0
+        },
+        "solve_latency_ns": {
+          "count": 500,
+          "max": 1397042.0,
+          "mean": 29333.926,
+          "median": 24604.0,
+          "min": 17459.0,
+          "null_count": 0
+        }
+      },
+      "scenario_count": 500,
+      "scenario_origin": "seeded_generated",
+      "solver_error_count": 0,
+      "strategy": "priority_aware_greedy",
+      "successful_run_count": 500,
+      "variant": "baseline"
+    },
+    {
+      "metrics": {
+        "coverage_fraction": {
+          "count": 500,
+          "max": 0.75,
+          "mean": 0.5558333333333334,
+          "median": 0.6,
+          "min": 0.2,
+          "null_count": 0
+        },
+        "critical_capped_all_request_seconds": {
+          "count": 432,
+          "max": 7200.0,
+          "mean": 3646.3198302469136,
+          "median": 3833.375,
+          "min": 112.0,
+          "null_count": 68
+        },
+        "critical_cue_unreached_fraction": {
+          "count": 432,
+          "max": 1.0,
+          "mean": 0.45119598765432095,
+          "median": 0.5,
+          "min": 0.0,
+          "null_count": 68
+        },
+        "evaluation_weighted_capped_all_request_seconds": {
+          "count": 500,
+          "max": 6805.464285714285,
+          "mean": 3631.2628070858354,
+          "median": 3631.958333333333,
+          "min": 1107.3,
+          "null_count": 0
+        },
+        "evaluation_weighted_mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1676.5,
+          "mean": 729.7611758491508,
+          "median": 708.3352272727273,
+          "min": 196.0,
+          "null_count": 0
+        },
+        "mean_critical_response_seconds_reached": {
+          "count": 324,
+          "max": 1719.5,
+          "mean": 730.8063271604939,
+          "median": 717.75,
+          "min": 112.0,
+          "null_count": 176
+        },
+        "mean_response_seconds_reached": {
+          "count": 500,
+          "max": 1676.5,
+          "mean": 726.6436666666666,
+          "median": 719.75,
+          "min": 196.0,
+          "null_count": 0
+        },
+        "p90_capped_all_request_seconds": {
+          "count": 500,
+          "max": 7200.0,
+          "mean": 7200.0,
+          "median": 7200.0,
+          "min": 7200.0,
+          "null_count": 0
+        },
+        "plan_assigned_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.24,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "planned_route_distance_meters": {
+          "count": 500,
+          "max": 19504.0,
+          "mean": 7364.56,
+          "median": 7140.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "reached_by_horizon_count": {
+          "count": 500,
+          "max": 3.0,
+          "mean": 2.24,
+          "median": 2.0,
+          "min": 1.0,
+          "null_count": 0
+        },
+        "reached_route_distance_meters": {
+          "count": 500,
+          "max": 19504.0,
+          "mean": 7364.56,
+          "median": 7140.0,
+          "min": 480.0,
+          "null_count": 0
+        },
+        "request_count": {
+          "count": 500,
+          "max": 5.0,
+          "mean": 4.054,
+          "median": 4.0,
+          "min": 3.0,
+          "null_count": 0
+        },
+        "solve_latency_ns": {
+          "count": 500,
+          "max": 136417.0,
+          "mean": 46400.646,
+          "median": 44562.5,
+          "min": 25375.0,
+          "null_count": 0
+        }
+      },
+      "scenario_count": 500,
+      "scenario_origin": "seeded_generated",
+      "solver_error_count": 0,
+      "strategy": "rescueai_optimizer",
+      "successful_run_count": 500,
+      "variant": "baseline"
+    }
+  ],
+  "metric_notes": {
+    "capped": "Unreached requests use the declared horizon cap, not an observed arrival.",
+    "controls": "Groups are separated by scenario_origin; controls are not pooled with generated scenarios.",
+    "failure_convention": "solver_error is retained as a run with no assignments, zero coverage, and horizon-capped responses for every request. Reached-only means are null with zero reached requests.",
+    "means": "Unweighted means of per-scenario values; null denominators are excluded and counted.",
+    "objective": "P/Q/K/C remain in raw runs; they are not averaged across differing scenarios.",
+    "reached_only": "Response means condition on reaching the horizon; read with coverage.",
+    "runtime": "solve_latency_ns measures strategy.solve wall time and varies by machine/run."
+  },
+  "scenario_variant_count": 500,
+  "schema_version": "dispatch_aggregate_v1",
+  "strategy_run_count": 2000,
+  "validation": {
+    "paired_strategy_coverage": true,
+    "request_rows": 8108,
+    "run_rows": 2000,
+    "scenario_records": 500,
+    "solver_error_runs": 0
+  }
+}

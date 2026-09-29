@@ -240,6 +240,8 @@ def test_solver_error_remains_in_summary_with_zero_coverage(tmp_path: Path) -> N
             "objective_Q_seconds": "",
             "objective_K_seconds": "",
             "objective_C": "",
+            "plan_status": "",
+            "solver_status": "ERROR",
         }
     )
     for row in request_rows:
@@ -264,6 +266,8 @@ def test_solver_error_remains_in_summary_with_zero_coverage(tmp_path: Path) -> N
                 "objective_Q_seconds": "",
                 "objective_K_seconds": "",
                 "objective_C": "",
+                "plan_status": "",
+                "solver_status": "ERROR",
             }
         )
     _write_csv(raw / "runs.csv", run_rows)

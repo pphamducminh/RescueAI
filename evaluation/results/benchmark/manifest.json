@@ -1,0 +1,48 @@
+{
+  "algorithm_runtime_scope": "strategy.solve only; route building excluded",
+  "benchmark": "synthetic_one_wave_dispatch_v1",
+  "code_sha256": "2b28cb066ac9b4a6d05c42ea85b267b55f3dd13b1e71ffb4b0e3f9a2f7dfe0d4",
+  "config": {
+    "horizon_seconds": 7200,
+    "scenarios_per_seed": 100,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "strategies": [
+      "fcfs",
+      "nearest_team",
+      "priority_aware_greedy",
+      "rescueai_optimizer"
+    ],
+    "variants": [
+      "baseline"
+    ]
+  },
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python_version": "3.13.7"
+  },
+  "files": [
+    "manifest.json",
+    "scenarios.jsonl",
+    "runs.csv",
+    "requests.csv",
+    "summary.json"
+  ],
+  "generated_scenario_count": 500,
+  "generator_version": "synthetic_dispatch_one_wave_v1",
+  "request_row_count": 8108,
+  "route_cost_config": {
+    "degraded_time_multiplier": 1.5,
+    "risk_penalty_seconds_per_unit": 20.0
+  },
+  "scenario_variant_count": 500,
+  "simulation_scope": "one wave; immediate simulated approval; first arrival at planned route time; no later dispatch or replanning",
+  "strategy_run_count": 2000,
+  "synthetic": true
+}

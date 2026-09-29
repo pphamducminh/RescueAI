@@ -1,6 +1,6 @@
 # AI usage and disclosure
 
-This is a disclosure template for the RescueAI competition project. It does not claim that an SOS extraction model, image model, or evaluated AI feature is present in the scaffold.
+This is a disclosure template for the RescueAI competition project. The local demo uses a disclosed rule-based SOS extractor and priority suggestion; it does not contain an SOS extraction model, image model, or evaluated AI feature.
 
 ## Intended AI role
 
@@ -8,7 +8,7 @@ This is a disclosure template for the RescueAI competition project. It does not 
 
 **NICE TO HAVE:** analysis of attached images. **POST-COMPETITION:** live automated integrations or operational deployment. These are plans, not implemented capabilities.
 
-If an AI service is unavailable, a local rule-based fallback may later keep a demonstration usable. Label its outputs as **rule-based** and never count them as AI extraction results.
+The local demo uses a rule-based extractor to work offline. Its outputs are labeled **rule-based** and must not be counted as AI extraction results.
 
 ## Usage record
 
@@ -20,6 +20,7 @@ Record each actual model or assistant use before making a competition disclosure
 | 2026-09-28 | SOS schema models, validation, synthetic test fixtures | OpenAI Codex (GPT-6; deployment identifier not recorded) | User request, `docs/SOS Schema v1.md`, and repository code | This development conversation; full prompt transcript is not stored in this repository | Human team review pending | `backend/domain/sos*.py` and `tests/test_sos_models.py`; no LLM integration |
 | 2026-09-28 | Offline synthetic SOS benchmark generator, documentation, and tests | OpenAI Codex (GPT-6; deployment identifier not recorded) | User request, `docs/Synthetic SOS Benchmark v1.md`, SOS domain schemas, and repository code | This development conversation; full prompt transcript is not stored in this repository | Vietnamese human review of generated sample pending | `evaluation/sos_benchmark/`, `tests/test_sos_benchmark.py`, and 100 synthetic sample records; the generator itself makes no external LLM call |
 | 2026-09-28 | Provider-independent SOS variation pipeline, documentation, and tests | OpenAI Codex (GPT-6; deployment identifier not recorded) | User's Task 6 request, frozen Task 5 sample, benchmark code, and repository documentation | This development conversation; full prompt transcript is not stored in this repository | Independent semantic review of any imported variants pending | `evaluation/sos_benchmark/natural_variants/` and its tests; the pipeline has no external generation-provider integration |
+| 2026-09-29 | Local competition demo integration, offline extraction rules, dashboard, API, tests, and launch documentation | OpenAI Codex (GPT-6; deployment identifier not recorded) | User request, existing architecture and domain contracts, and repository code | This development conversation; full prompt transcript is not stored in this repository | Human team review pending | `backend/demo/`, `backend/extraction/rules.py`, `backend/priority/rules.py`, `frontend/src/`, `tests/test_demo_*.py`, and `docs/DEMO.md`; no SOS LLM is called |
 
 The team should retain or export the exact prompt transcript before a competition
 submission if its rules require prompt logs. This row does not substitute for that

@@ -4,7 +4,7 @@ RescueAI is a **decision-support project** for disaster rescue coordination. The
 
 ## Current status
 
-This repository is an **MVP architecture scaffold**, not a working rescue system. The backend exposes `GET /health`. The four validated SOS snapshot models from [SOS Schema v1](docs/SOS%20Schema%20v1.md) are implemented as domain contracts. A [dynamic road graph](backend/routing/README.md) supports deterministic shortest paths and rerouting after road changes. [One-wave dispatch strategies](backend/dispatch/README.md) now consume a frozen set of feasible routes and produce proposals for human approval. SOS extraction, priority scoring, an operational approval workflow, end-to-end event replay, persistence, and the dashboard remain unimplemented.
+This repository has a **local competition demo**, not a working rescue service. The demo connects [SOS Schema v1](docs/SOS%20Schema%20v1.md), a narrow offline phrase extractor, provisional priority suggestions, a [dynamic road graph](backend/routing/README.md), [one-wave dispatch](backend/dispatch/README.md), a route dashboard, road blocking, automatic proposal replanning, and explicit dispatcher approval. It uses a synthetic map and in-memory state. LLM extraction, an operational approval system, persistence, live teams, and end-to-end event replay remain unimplemented. See the [demo launch guide](docs/DEMO.md).
 
 An [offline synthetic SOS benchmark generator](evaluation/sos_benchmark/README.md) now produces typed Vietnamese text reports and gold annotations for development. The 100-record sample is synthetic and has not been human reviewed; no extractor scores are reported.
 
@@ -109,16 +109,17 @@ See the [evaluation guide](evaluation/README.md) for artifact names, metrics,
 failure handling, and the difference between these one-wave workloads and the
 proposed full evaluation protocol.
 
-Start the API:
+Build the dependency-free frontend and start the local demo API:
 
 ```sh
-.venv/bin/python -m uvicorn backend.api.app:app --reload
-curl http://127.0.0.1:8000/health
+npm --prefix frontend run build
+.venv/bin/python -m uvicorn backend.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-`GET /health` checks that the API process is running. It does not assert that any rescue workflow or external dependency is ready.
-
-The [frontend](frontend/README.md) is a placeholder; there is no install or start command for a dashboard yet.
+Open `http://127.0.0.1:8000/demo`. In another terminal, run
+`curl http://127.0.0.1:8000/health` to check that the API
+process is running. The [demo guide](docs/DEMO.md) gives a step-by-step SOS,
+review, road-blocking, replanning and approval walkthrough.
 
 ## Repository layout
 
@@ -126,14 +127,15 @@ The [frontend](frontend/README.md) is a placeholder; there is no install or star
 | --- | --- |
 | `backend/api/` | FastAPI transport and request handling |
 | `backend/domain/` | Shared typed domain schemas, separate from API logic |
-| `backend/extraction/`, `backend/priority/` | SOS information extraction and suggested priority contracts |
+| `backend/extraction/`, `backend/priority/` | SOS contracts and narrow offline demo rules |
+| `backend/demo/` | In-memory synthetic demo state and review/approval integration |
 | `backend/routing/`, `backend/dispatch/` | Dynamic road graph and four one-wave dispatch proposal strategies |
 | `backend/simulation/` | Seed helper; future simulation clock and playback logic |
 | `simulation/` | Placeholder for versioned synthetic scenario inputs |
 | `evaluation/` | Offline synthetic SOS benchmark and optional variant triage; routing trials, dispatch benchmark runner, ablation, and raw-result validation |
 | `experiments/` | Synthetic benchmark development sample and future experiment runs |
 | `data/sos_benchmark/natural_variants/` | Task 6 render specs and separate raw, accepted, rejected, and review queues |
-| `frontend/` | Planned React dashboard |
+| `frontend/` | Dependency-free local route and review dashboard |
 | `tests/` | Backend and domain tests |
 | `docs/` | Architecture, AI use, and dataset documentation |
 
