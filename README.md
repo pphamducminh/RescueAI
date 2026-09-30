@@ -119,7 +119,10 @@ npm --prefix frontend run build
 Open `http://127.0.0.1:8000/demo`. In another terminal, run
 `curl http://127.0.0.1:8000/health` to check that the API
 process is running. The [demo guide](docs/DEMO.md) gives a step-by-step SOS,
-review, road-blocking, replanning and approval walkthrough.
+review, road-blocking, replanning and approval walkthrough. The FastAPI
+reference is at `http://127.0.0.1:8000/docs`; the [integration endpoint guide](docs/DEMO.md#fastapi-integration-endpoints)
+includes an HTTP example using `/sos`, `/dispatch/plan`, road blocking, and
+replanning. API requests and the browser share one in-memory demo session.
 
 ## Repository layout
 

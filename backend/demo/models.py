@@ -72,6 +72,10 @@ class DemoRoadEvent(DemoModel):
 class DemoState(DemoModel):
     synthetic: bool
     mode: StrictStr
+    simulation_step: StrictInt = Field(
+        ge=0,
+        description="Planning-only tick count; no travel or rescue outcome is simulated.",
+    )
     graph_revision: StrictInt
     strategy: StrictStr
     incident_node_ids: tuple[StrictStr, ...]

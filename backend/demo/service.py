@@ -135,6 +135,7 @@ class DemoService:
                 ),
             )
             self._reports: dict[str, _StoredReport] = {}
+            self._simulation_step = 0
             self._proposal: DemoProposal | None = None
             self._approved: DemoApproval | None = None
             self._road_events: list[DemoRoadEvent] = []
@@ -142,6 +143,26 @@ class DemoService:
 
     def state(self) -> DemoState:
         with self._lock:
+            return self._view()
+
+    def plan(self) -> DemoProposal:
+        """Create a fresh one-wave dispatch proposal from reviewed inputs."""
+
+        with self._lock:
+            if not self._reports:
+                raise DemoError("no SOS reports to plan", status_code=409)
+            self._recompute()
+            proposal = self._proposal
+            if proposal is None:
+                raise RuntimeError("dispatch proposal was not created")
+            return proposal
+
+    def step(self) -> DemoState:
+        """Advance one planning tick and refresh the proposal, without travel."""
+
+        with self._lock:
+            self._simulation_step += 1
+            self._recompute()
             return self._view()
 
     def submit_sos(self, text: str, suggested_node_id: str | None) -> DemoState:
@@ -326,6 +347,7 @@ class DemoService:
         return DemoState(
             synthetic=True,
             mode="local_rule_based_in_memory_demo",
+            simulation_step=self._simulation_step,
             graph_revision=graph_state.revision,
             strategy=STRATEGY_NAME,
             incident_node_ids=tuple(sorted(INCIDENT_NODE_IDS)),

@@ -17,9 +17,10 @@ npm --prefix frontend run build
 .venv/bin/python -m uvicorn backend.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-Open **http://127.0.0.1:8000/demo**. The API health endpoint is
-`http://127.0.0.1:8000/health`. Build the frontend again after editing its
-source files. There is no separate frontend server or `npm install` step.
+Open **http://127.0.0.1:8000/demo**. The interactive API reference is at
+**http://127.0.0.1:8000/docs**; its OpenAPI JSON is at `/openapi.json`. The
+health endpoint is `/health`. Build the frontend again after editing its source
+files. There is no separate frontend server or `npm install` step.
 
 ## Walkthrough
 
@@ -34,6 +35,79 @@ direction does not block its reverse edge. Teams start at fixed nodes. The
 graph chooses a route by travel time plus the configured risk penalty, and
 dispatch compares the resulting routes' travel ETAs. Approval records a
 decision but does not move teams or contact responders.
+
+## FastAPI integration endpoints
+
+These root endpoints operate on the same in-memory demo session as the browser.
+They reuse the SOS extraction, priority, graph, and dispatch modules. POST
+responses below are JSON. Route edge IDs are directed and can be read from
+`proposal.plan.assignments[*].route.edge_ids`.
+
+| Endpoint | Request body | Response and effect |
+| --- | --- | --- |
+| `POST /sos` | `{"text":"...","suggested_node_id":"north"}` | Full `DemoState`, including the new report with extraction and provisional priority. The suggested node does not count as dispatcher review. |
+| `GET /sos` | None | Array of `DemoReport` records. |
+| `GET /teams` | None | Array of `DispatchTeam` records. |
+| `POST /sos/{id}/review` | `{"incident_node_id":"north","dispatch_weight":5,"required_capabilities":["basic","medical"],"reviewer_id":"operator-demo"}` | Full `DemoState`; accepts the routing node, dispatch weight, and capabilities for that report. `basic` is required. |
+| `POST /dispatch/plan` | None | Current `DemoProposal`, with assignments, routes, predicted response times, objective, and unserved reasons. Recomputes from the current graph and reviewed requests. Returns HTTP 409 if no SOS exists. |
+| `POST /dispatch/proposals/{proposal_id}/approve` | `{"dispatcher_id":"operator-demo"}` | Full `DemoState`; records human approval of the current proposal. A stale or empty proposal cannot be approved. |
+| `POST /roads/{id}/block` or `/unblock` | `{"actor_id":"operator-demo"}` | Full `DemoState`; updates one directed edge and automatically replans. |
+| `POST /simulation/reset` | None | Full reset `DemoState`; clears reports, road events, approvals, and simulation steps. |
+| `POST /simulation/step` | None | Full `DemoState`; increments the demo step counter and recomputes a planning proposal. It does not move teams. |
+| `GET /system/state` | None | Full `DemoState`, including simulation step, graph revision, road statuses, reports, proposal, and approval record. |
+
+Request schemas reject unexpected fields. Invalid JSON/schema values return
+HTTP 422; invalid demo values return 400; unknown report or road IDs return
+404; stale proposals and incompatible state changes return 409. The existing
+`/api/demo/*` paths remain available for the browser. Planning does not itself
+approve or execute assignments.
+
+With the server running, this standard-library example submits and reviews an
+SOS, blocks an edge in its first route, then confirms the recomputed plan omits
+that edge:
+
+```sh
+.venv/bin/python - <<'PY'
+import json
+from urllib.request import Request, urlopen
+
+base = "http://127.0.0.1:8000"
+
+def request(method, path, payload=None):
+    body = None if payload is None else json.dumps(payload).encode("utf-8")
+    headers = {} if body is None else {"Content-Type": "application/json"}
+    with urlopen(Request(base + path, data=body, headers=headers, method=method)) as response:
+        return json.load(response)
+
+request("POST", "/simulation/reset")
+state = request("POST", "/sos", {
+    "text": "2 people are trapped. One is unconscious.",
+    "suggested_node_id": "north",
+})
+sos_id = state["reports"][-1]["sos_id"]
+request("POST", f"/sos/{sos_id}/review", {
+    "incident_node_id": "north",
+    "dispatch_weight": 5,
+    "required_capabilities": ["basic", "medical"],
+    "reviewer_id": "operator-demo",
+})
+original = request("POST", "/dispatch/plan")
+edge_id = original["plan"]["assignments"][0]["route"]["edge_ids"][0]
+request("POST", f"/roads/{edge_id}/block", {"actor_id": "operator-demo"})
+updated = request("POST", "/dispatch/plan")
+assert updated["proposal_id"] != original["proposal_id"]
+assert all(
+    edge_id not in assignment["route"]["edge_ids"]
+    for assignment in updated["plan"]["assignments"]
+)
+approved = request(
+    "POST", f"/dispatch/proposals/{updated['proposal_id']}/approve",
+    {"dispatcher_id": "operator-demo"},
+)
+assert approved["approved"]["proposal_id"] == updated["proposal_id"]
+print(json.dumps({"blocked_edge": edge_id, "new_proposal": updated["proposal_id"]}))
+PY
+```
 
 ## Verification and offline evaluation
 

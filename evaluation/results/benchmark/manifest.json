@@ -6,11 +6,7 @@
     "horizon_seconds": 7200,
     "scenarios_per_seed": 100,
     "seeds": [
-      1,
-      2,
-      3,
-      4,
-      5
+      2026
     ],
     "strategies": [
       "fcfs",
@@ -34,15 +30,15 @@
     "requests.csv",
     "summary.json"
   ],
-  "generated_scenario_count": 500,
+  "generated_scenario_count": 100,
   "generator_version": "synthetic_dispatch_one_wave_v1",
-  "request_row_count": 8108,
+  "request_row_count": 1612,
   "route_cost_config": {
     "degraded_time_multiplier": 1.5,
     "risk_penalty_seconds_per_unit": 20.0
   },
-  "scenario_variant_count": 500,
+  "scenario_variant_count": 100,
   "simulation_scope": "one wave; immediate simulated approval; first arrival at planned route time; no later dispatch or replanning",
-  "strategy_run_count": 2000,
+  "strategy_run_count": 400,
   "synthetic": true
 }
